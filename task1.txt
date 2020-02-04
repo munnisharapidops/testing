@@ -1,0 +1,47 @@
+1.what is software testing?
+
+     Software testing is a process to check the program weather  it meets the requirements or not   and it produces desired results . As a result you can find the errors.
+
+2.Types of testing methods?
+
+      There are 4 types of testing methods are there. those are 
+1.unit testing
+2.integration testing
+3.System testing.
+4.acceptance  testing
+ 
+unit testing:-
+        unit testing is used to check individual modules of the source code is working properly or not.each individual module is developed separately  by the developers in  development environment. it is also known as AKA testing
+   
+integration testing:-
+  Integration testing is check connectivity of data transfer between the individual modules of the system. it is also known as AKA & IT testing. it is again divided into top-down approach,bottom-up approach, sandwich approach(top-down &bottom-up)
+
+System Testing:-
+  it is a black box testing.System testing test the fully integrated  applications.it is also known as END TO END testing.it verify the each input in the system to ensure desired outputs. To ensure that the software works in all intended target systems
+
+Acceptance testing:-
+	Acceptance testing is used to obtain customer sign-off so that software can be delivered and payments received. Types of acceptance Testing are Alpha, Beta & Gamma Testing.
+	
+	
+3.Difference between verification and validation?
+
+     Verification is the process of checking the whether  the specification of user requirements are present the system or not
+Validation is the process of checking the specifications what are the present in the system. they are giving accurate results or not based on customer needs
+
+4.What is functional testing and give me types of functional testing?
+
+    functional testing means what actually system does.To verify each function of the software program that reaches the user requirements documentation or not.testing all functionalities by providing appropriate inputs and check the output giving appropriate results are not
+
+types of functional testing:- 
+        unit testing
+        integration testing
+         user acceptance testing
+5.What is non- functional testing and give me types of non-functional testing
+
+  Non-functional testing refers to various aspects of the software such as performance, load, stress,security, compatibility etc., 
+it mainly focus to improve the user experience on how fast the system responds to a request
+
+types of non-functional testing:-
+   performance testing
+maintainability  testing
+scalability testing
