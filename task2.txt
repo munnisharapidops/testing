@@ -1,0 +1,125 @@
+White-box testing:-
+
+  --->Statement coverage 
+  --->Decision coverage 
+  --->condition coverage 
+  --->multiple condition coverage
+Statement coverage:-
+
+Statement coverage is a white box testing technique, which involves the execution of all the statements at least once in the source code. which is used to calculate and measure the number of statements in the source code which have been executed. Using this technique we can check what the source code is expected to do and what it should not. It can also be used to check the quality of the code and the flow of different paths in the program. The main drawback of this technique is that we cannot test the false condition in it. 
+
+(Statement coverage = No of statements Executed/Total no of statements in the source code * 100)
+
+Example:
+
+Read A
+Read B
+if A>B
+Print “A is greater than B”
+else
+Print "B is greater than A"
+endif
+
+Set1 :If A =5, B =2
+No of statements Executed: 5
+Total no of statements in the source code: 7
+Statement coverage =5/7*100 = 71.00 %
+
+Decision coverage:-
+
+it is also known as branch coverage.which aims to ensure that each branch from the each  decision point is executed at-least once.there by ensuring all reachable code is executed.
+
+ex:-
+read a
+read b
+if a+b >10 then 
+  console.log('a+b is large');
+endif
+if a>5 then
+console.log(a is large);
+endif
+
+Condition coverage:-
+
+condition coverage is also known as predicate coverage.In which each boolean expression have been evaluated to both TRUE and FALSE
+EX:-
+if((a || b) && c){
+  statements    to be executed;
+} else {
+statements to be executed;
+}
+
+multiple condition coverage:-
+
+in mcc all statements must be executed.all combinations of truth values in each decision must occure at-least once to reach full coverage.
+	ex:-
+	bool isValidPosition(int x, int y, int z)
+	{
+	    if ((x > 10 || y > 20) && z > 0)
+	        return true;
+	    else
+	        return false;
+	}
+	
+	For 100% MCC all combinations of truth values for the tree boolean expressions x > 10, y > 20 and z > 0 need to be exercised. One might expect 23 = 8 tests to be needed. 
+	
+Black-box testing:-
+
+    --->boundary value analysis
+    --->Equivalence partitioning
+    --->Cause effect graphing
+    --->Error guessing
+
+Boundary value analysis:-
+
+Boundary testing is the process of testing between extreme ends or boundaries between partitions of the input values.
+
+- So these extreme ends like Start- End, Lower- Upper, Maximum-Minimum, Just Inside-Just Outside values are called boundary values and the testing is called "boundary testing".
+- The basic idea in boundary value testing is to select input variable values at their:
+1. Minimum
+2. Just above the minimum
+3. A nominal value
+4. Just below the maximum
+5. Maximum
+
+ex:-
+Let's consider the behavior of Order Pizza Text Box Below Pizza values 1 to 10 is considered valid. 
+A success message is shown.
+While value 11 to 99 are considered invalid for order and an error message will appear, "Only 10 Pizza can be ordered"
+ test condition
+
+1. Any Number greater than 10 entered in the Order Pizza field(let say 11) is considered invalid.
+2. Any Number less than 1 that is 0 or below, then it is considered invalid.
+3. Numbers 1 to 10 are considered valid
+4. Any 3 Digit Number say -100 is invalid.
+equivalence partitioning:-
+
+Equivalent Class Partitioning is a black box technique (code is not visible to tester) which can be applied to all levels of testing like unit, integration, system, etc. In this technique, you divide the set of test condition into a partition that can be considered the same.
+The divided sets are called Equivalence Partitions or Equivalence Classes. Then we pick only one value from each partition for testing. The hypothesis behind this technique is that if one condition/value in a partition passes all others will also pass. Likewise, if one condition in a partition fails, all other conditions in that partition will fail.
+
+ex:-
+assume that the application accepts an integer in the range 100 to 999
+valid equivalence class partition:100 to 999 inclusive
+non-valid equivalence class partitions:less than 100 and more than 999
+
+cause effect graphing:-
+
+Cause Effect Graph is a black box testing technique that graphically illustrates the relationship between a given outcome and all the factors that influence the outcome.
+Cause-Effect graph technique converts the requirements specification into a logical relationship between the input and output conditions by using logical operators like AND, OR and NOT.
+ex:-
+The character in column 1 should be either A or B and in the column 2 should be a digit. If both columns contain appropriate values then update is made. If the input of column 1 is incorrect, i.e. neither A nor B, then message X will be displayed. If the input in column 2 is incorrect, i.e. input is not a digit, then message Y will be displayed.
+
+- A file must be updated, if the character in the first column is either "A" or "B" and in the second column it should be a digit.
+- If the value in the first column is incorrect (the character is neither A nor B) then massage X will be displayed.
+- If the value in the second column is incorrect (the character is not a digit) then massage Y will be displayed.
+
+Error guessing:-
+
+It is an experience-based testing technique where the Test Analyst uses his/her experience to guess the problematic areas of the application. This technique necessarily requires skilled and experienced testers.
+
+It is a type of Black-Box Testing technique and can be viewed as an unstructured approach to Software Testing.
+Purpose Of Error Guessing In Software Testing
+
+- The main purpose of this technique is to guess possible bugs in the areas where formal testing would not work.
+- It should obtain an all-inclusive set of testing without any skipped areas, and without creating redundant tests.
+- This technique compensates for the characteristic incompleteness of Boundary Value Analysis and Equivalence Partitioning techniques.
