@@ -6,6 +6,47 @@ exports.config = {
     //
     // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
     // on a remote machine).
+    // capabilities: {
+    //     'browserName': 'chrome',
+    //     'chromeOptions': {
+    //         'excludeSwitches': ['enable-automation']
+    //     }
+    // },
+    // chromeOptions: { args: ['disable-infobars'] },
+
+    // capabilities: [{
+    //     browserName: 'chrome',
+    //     'goog:chromeOptions': {
+    //       args: exports.config = {
+    //
+    // ====================
+    // Runner Configuration
+    // ====================
+    //
+    // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
+    // on a remote machine).
+    // capabilities: {
+    //     'browserName': 'chrome',
+    //     'chromeOptions': {
+    //         'excludeSwitches': ['enable-automation']
+    //     }
+    // },
+    // chromeOptions: { args: ['disable-infobars'] },
+
+    // capabilities['--disable-web-security'],
+    //     },
+    //   }],
+
+   // seleniumAddress: 'http://localhost:4444/wd/hub',
+    //specs: ['basic.js'],
+    // capabilities: {
+    //     'browserName': 'chrome',
+    //     "goog:chromeOptions": {
+    //       "excludeSwitches": [ "enable-automation" ],
+    //       "useAutomationExtension": false
+    //    }
+    //   },
+
     runner: 'local',
     //
     // Override default path ('/wd/hub') for chromedriver service.
@@ -20,7 +61,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './test/specs/**/selector-examples-test.js'
+        './test/specs/**/basic.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -55,10 +96,18 @@ exports.config = {
         maxInstances: 5,
         //
         browserName: 'chrome',
+       // 'browserName': 'chrome',
+       'goog:chromeOptions': {
+            'excludeSwitches': ['enable-automation'],
+            'args': ['--disable-web-security'],
+            "useAutomationExtension": false
+        }
+        
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
-        // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
+        //excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
+       
     }],
     //
     // ===================
@@ -91,7 +140,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+    baseUrl: 'http://www.webdriveruniversity.com/',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -162,8 +211,34 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
-    // before: function (capabilities, specs) {
-    // },
+     before: function (capabilities, specs) {
+         expect = require('chai').expect;
+
+         browser.addCommand("getUrlAndTitle",function() {
+             return {
+                 url:this.getUrl(),
+                 title:this.getTitle()
+             }
+         })
+
+         browser.addCommand("waitAndClick",function(selector) {
+           try {
+                $(selector).waitForExist();
+                $(selector).click();
+           } catch(Error) {
+               throw new Error("could not click on selector"+ $(selector));
+           }
+        })
+
+        browser.addCommand("waitAndSendkeys",function(selector,keys) {
+            try {
+                 $(selector).waitForExist();
+                 $(selector).setValue(keys);
+            } catch(Error) {
+                throw new Error("could not send keys"+ $(keys)+",using selector: "+$(selector));
+            }
+         })
+     },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name
