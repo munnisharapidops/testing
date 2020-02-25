@@ -1,3 +1,5 @@
+
+let config=require("./test/specs/main-config-test");
 exports.config = {
     //
     // ====================
@@ -61,7 +63,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './test/specs/**/basic.js'
+        './test/specs/contact-us-test.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -95,12 +97,11 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 5,
         //
-        browserName: 'chrome',
-       // 'browserName': 'chrome',
+        browserName: config.browser,
        'goog:chromeOptions': {
             'excludeSwitches': ['enable-automation'],
-            'args': ['--disable-web-security'],
-            "useAutomationExtension": false
+            //'args': ['--disable-web-security'],
+            //"useAutomationExtension": false
         }
         
         // If outputDir is provided WebdriverIO can capture driver session logs
@@ -116,7 +117,7 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'silent',
+    logLevel: config.logLevel,
     //
     // Set specific log levels per logger
     // loggers:
@@ -140,10 +141,10 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://www.webdriveruniversity.com/',
+    baseUrl: config.baseUrl,
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: config.timeOut,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
