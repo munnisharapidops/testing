@@ -1,0 +1,22 @@
+{
+  "name": "getExcelData",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/wdio wdio.conf.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@wdio/cli": "^5.22.0",
+    "@wdio/local-runner": "^5.21.0",
+    "@wdio/mocha-framework": "^5.18.7",
+    "@wdio/spec-reporter": "^5.18.7",
+    "@wdio/sync": "^5.20.1",
+    "chromedriver": "^80.0.1",
+    "exceljs": "^3.8.1",
+    "wdio-chromedriver-service": "^5.0.2"
+  }
+}
