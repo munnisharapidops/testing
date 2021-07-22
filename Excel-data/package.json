@@ -5,7 +5,7 @@
   "dependencies": {
     "exceljs": "^3.8.0",
     "selenium-webdriver": "^4.0.0-alpha.5",
-    "xlsx": "^0.15.6"
+    "xlsx": "^0.17.0"
   },
   "devDependencies": {
     "webdriverio": "^4.14.4"
